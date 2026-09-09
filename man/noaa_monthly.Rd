@@ -12,7 +12,9 @@ noaa_monthly(
   units = "metric",
   include_flags = FALSE,
   include_location = FALSE,
-  cache = TRUE
+  drop_empty = is.null(datatypes),
+  cache = TRUE,
+  refresh = FALSE
 )
 }
 \arguments{
@@ -33,7 +35,13 @@ noaa_monthly(
 \item{include_location}{Logical. Include station latitude, longitude,
 and elevation columns (default \code{FALSE}).}
 
+\item{drop_empty}{Logical. Drop columns that contain no data at all.
+Defaults to \code{TRUE} when \code{datatypes} is \code{NULL}.}
+
 \item{cache}{Logical. Use cached data if available (default \code{TRUE}).}
+
+\item{refresh}{Logical. Ignore any cached copy and refetch (default
+\code{FALSE}).}
 }
 \value{
 A data frame with columns including:
@@ -51,7 +59,9 @@ dataset.
 \examples{
 \donttest{
 op <- options(readnoaa.cache_dir = tempdir())
-noaa_monthly("USW00094728", "2024-01", "2024-12")
+try({
+  noaa_monthly("USW00094728", "2024-01", "2024-12")
+})
 options(op)
 }
 }

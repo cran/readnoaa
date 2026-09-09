@@ -1,11 +1,11 @@
 Package: readnoaa
 Title: Access 'NOAA' Climate and Weather Data
-Version: 0.1.1
+Version: 0.2.1
 Authors@R: person("Charles", "Coverdale", email = "charlesfcoverdale@gmail.com", role = c("aut", "cre", "cph"))
 Description: Provides clean, tidy access to climate and weather data from the
     'National Oceanic and Atmospheric Administration' ('NOAA') via the 'National
     Centers for Environmental Information' ('NCEI') Data Service API
-    <https://www.ncei.noaa.gov/access/services/data/v1>. Covers daily weather
+    <https://www.ncei.noaa.gov/support/access-data-service-api-user-documentation>. Covers daily weather
     observations, monthly and annual summaries, and 30-year climate normals from
     over 100,000 stations across 180 countries. No API key is required.
     Dedicated functions handle the most common datasets, while a generic fetcher
@@ -16,7 +16,8 @@ Description: Provides clean, tidy access to climate and weather data from the
 License: MIT + file LICENSE
 Encoding: UTF-8
 Language: en-US
-URL: https://github.com/charlescoverdale/readnoaa
+URL: https://charlescoverdale.github.io/readnoaa/,
+        https://github.com/charlescoverdale/readnoaa
 BugReports: https://github.com/charlescoverdale/readnoaa/issues
 RoxygenNote: 7.3.3
 Depends: R (>= 4.1.0)
@@ -24,8 +25,8 @@ Imports: cli (>= 3.6.0), httr2 (>= 1.0.0), tools
 Suggests: testthat (>= 3.0.0)
 Config/testthat/edition: 3
 NeedsCompilation: no
-Packaged: 2026-03-16 17:54:01 UTC; charlescoverdale
+Packaged: 2026-09-09 09:15:24 UTC; charlescoverdale
 Author: Charles Coverdale [aut, cre, cph]
 Maintainer: Charles Coverdale <charlesfcoverdale@gmail.com>
 Repository: CRAN
-Date/Publication: 2026-03-19 15:00:02 UTC
+Date/Publication: 2026-09-09 09:40:02 UTC

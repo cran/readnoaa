@@ -12,7 +12,9 @@ noaa_daily(
   units = "metric",
   include_flags = FALSE,
   include_location = FALSE,
-  cache = TRUE
+  drop_empty = is.null(datatypes),
+  cache = TRUE,
+  refresh = FALSE
 )
 }
 \arguments{
@@ -36,7 +38,16 @@ noaa_daily(
 \item{include_location}{Logical. Include station latitude, longitude,
 and elevation columns (default \code{FALSE}).}
 
+\item{drop_empty}{Logical. Drop columns that contain no data at all.
+Defaults to \code{TRUE} when \code{datatypes} is \code{NULL}, because an unfiltered
+request returns the whole GHCN-Daily element set as columns and few
+stations report more than a handful of them. When you name \code{datatypes}
+explicitly, every requested column is kept.}
+
 \item{cache}{Logical. Use cached data if available (default \code{TRUE}).}
+
+\item{refresh}{Logical. Ignore any cached copy and refetch (default
+\code{FALSE}).}
 }
 \value{
 A data frame with columns including:
@@ -57,17 +68,28 @@ and SNWD (snow depth).
 \details{
 Requests spanning more than one year are automatically split into
 yearly chunks to avoid API timeouts.
+
+Station records vary enormously in how current they are. United States
+stations are typically complete to within a few days, while many
+international stations lag by months or have stopped reporting
+altogether. Use \code{\link[=noaa_coverage]{noaa_coverage()}} to check a station's record before
+relying on it.
 }
 \examples{
 \donttest{
 op <- options(readnoaa.cache_dir = tempdir())
-# Daily temperatures for Central Park, NYC
-noaa_daily("USW00094728", "2024-01-01", "2024-01-31",
-           datatypes = c("TMAX", "TMIN"))
+try({
+  # Daily temperatures for Central Park, NYC
+  noaa_daily("USW00094728", "2024-01-01", "2024-01-31",
+  datatypes = c("TMAX", "TMIN"))
+})
 options(op)
 }
 }
 \seealso{
+\code{\link[=noaa_coverage]{noaa_coverage()}} to check which elements a station reports
+and how current its record is.
+
 Other weather data: 
 \code{\link{noaa_annual}()},
 \code{\link{noaa_monthly}()},
