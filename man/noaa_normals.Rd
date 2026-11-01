@@ -80,9 +80,13 @@ no date column at all.
 \section{Units}{
 
 The NCEI normals datasets are published in United States customary units
-(degrees Fahrenheit, inches) and ignore the API's \code{units} parameter, so
-unlike the observational functions there is no metric option. Convert
-after the fact if you need Celsius or millimetres.
+(degrees Fahrenheit, inches). Asked for metric units, the API converts
+them inconsistently: precipitation and monthly maximum and minimum
+temperature are converted, monthly average temperature is not, and
+temperature ranges are converted as if they were temperatures (giving
+negative diurnal ranges). This function therefore always requests the
+published units and, unlike the observational functions, has no metric
+option. Convert after the fact if you need Celsius or millimetres.
 }
 
 \examples{
@@ -100,9 +104,9 @@ options(op)
 }
 }
 \seealso{
-Other weather data: 
-\code{\link{noaa_annual}()},
-\code{\link{noaa_daily}()},
-\code{\link{noaa_monthly}()}
+Other weather data:
+\code{\link[=noaa_annual]{noaa_annual()}},
+\code{\link[=noaa_daily]{noaa_daily()}},
+\code{\link[=noaa_monthly]{noaa_monthly()}}
 }
 \concept{weather data}

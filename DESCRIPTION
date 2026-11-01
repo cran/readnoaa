@@ -1,6 +1,6 @@
 Package: readnoaa
 Title: Access 'NOAA' Climate and Weather Data
-Version: 0.2.1
+Version: 0.2.2
 Authors@R: person("Charles", "Coverdale", email = "charlesfcoverdale@gmail.com", role = c("aut", "cre", "cph"))
 Description: Provides clean, tidy access to climate and weather data from the
     'National Oceanic and Atmospheric Administration' ('NOAA') via the 'National
@@ -19,14 +19,14 @@ Language: en-US
 URL: https://charlescoverdale.github.io/readnoaa/,
         https://github.com/charlescoverdale/readnoaa
 BugReports: https://github.com/charlescoverdale/readnoaa/issues
-RoxygenNote: 7.3.3
 Depends: R (>= 4.1.0)
 Imports: cli (>= 3.6.0), httr2 (>= 1.0.0), tools
 Suggests: testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Config/roxygen2/version: 8.1.0
 NeedsCompilation: no
-Packaged: 2026-09-09 09:15:24 UTC; charlescoverdale
+Packaged: 2026-11-01 14:08:49 UTC; charlescoverdale
 Author: Charles Coverdale [aut, cre, cph]
 Maintainer: Charles Coverdale <charlesfcoverdale@gmail.com>
 Repository: CRAN
-Date/Publication: 2026-09-09 09:40:02 UTC
+Date/Publication: 2026-11-01 15:20:08 UTC
